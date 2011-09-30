@@ -532,9 +532,10 @@ aside {
 }
 
 aside.page_number {
+    color: rgba(0, 0, 0, 0.6);
     bottom: 20px;
     position: absolute;
-    left: 20px;
+    right: 20px;
     text-indent: 10px;
 }
 
@@ -921,6 +922,7 @@ pre {
     font-size: 16px;
     left: 70px;
     margin-top: 40px;
+    overflow: hidden;
     padding: 10px;
     position: absolute;
     width: 750px;
