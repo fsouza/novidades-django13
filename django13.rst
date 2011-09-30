@@ -40,7 +40,6 @@ Class Based Views
 
 staticfiles
 ===========
-
 * Fica com o Petry :)
 
 ------------------------
@@ -94,6 +93,7 @@ unittest2
     from django.utils import unittest
 
 
+
 ------------------------
 
 RequestFactory
@@ -117,6 +117,33 @@ RequestFactory
             view = HelloWorldView()
             response = view.get(request)
             self.assertEquals("Hello World", response.content)
+
+------------------------
+
+on_delete
+=========
+
+.. sourcecode:: python
+
+    from django.db import models
+
+
+    class Book(models.Model):
+        user = models.ForeignKey(User, blank=True, null=True, on_delete=models.SET_NULL)
+
+------------------------
+
+on_delete
+=========
+
+.. class:: build
+
+* models.CASCADE (default)
+* models.PROTECT
+* models.SET_NULL
+* models.SET_DEFAULT
+* models.SET()
+* models.DO_NOTHING
 
 ------------------------
 
