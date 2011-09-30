@@ -22,7 +22,7 @@ Class Based Views
 
     class HelloWorldView(View):
 
-        def get(self):
+        def get(self, request, *args, **kwargs):
             return HttpResponse("Hello world")
 
 ------------------------
@@ -117,6 +117,31 @@ RequestFactory
             view = HelloWorldView()
             response = view.get(request)
             self.assertEquals("Hello World", response.content)
+
+------------------------
+
+TemplateResponse
+================
+
+
+.. sourcecode:: python
+
+    class HelloWorldView(View):
+
+        def get(self, request, *args, **kwargs):
+            return TemplateResponse(request, "hello.html", {"name": "Francisco Souza"})
+
+------------------------
+
+TemplateResponse
+================
+
+.. sourcecode:: python
+
+    response = view.get(request)
+    name = response.context_data['name']
+    self.assertEquals('hello.html', response.template_name)
+    self.assertEquals('Francisco Souza', name)
 
 ------------------------
 
